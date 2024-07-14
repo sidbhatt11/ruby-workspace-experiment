@@ -16,7 +16,6 @@ module Workspace
 
         sig { params(name: String, _arguments: T::Array[String]).void }
         def test(name, _arguments = [])
-          require 'test/unit'
           dir_name = name.downcase
 
           tests_not_found = {

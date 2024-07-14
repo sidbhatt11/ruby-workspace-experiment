@@ -7,8 +7,6 @@ require 'sorbet-runtime'
 module Workspace
   extend T::Sig
 
-  autoload(:Test, 'test/unit')
-
   module Core
     autoload(:Loadable, './core/loadable')
     autoload(:Runnable, './core/runnable')
