@@ -59,5 +59,14 @@
         "request": "attach"
       }
     ]
+  },
+  "extensions": {
+    "recommendations": [
+      "editorconfig.editorconfig",
+      "shopify.ruby-lsp",
+      "sorbet.sorbet-vscode-extension",
+      "sonarsource.sonarlint-vscode",
+      "eamodio.gitlens"
+    ]
   }
 }
