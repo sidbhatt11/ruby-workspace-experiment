@@ -4,28 +4,32 @@
       "name": "root",
       "path": ".",
       "settings": {
-        "rubyLsp.bundleGemfile": "Gemfile"
+        "rubyLsp.bundleGemfile": "Gemfile",
+        "sorbet.configFilePatterns": ["sorbet/config"]
       }
     },
     {
       "name": "core",
       "path": "core",
       "settings": {
-        "rubyLsp.bundleGemfile": "../Gemfile"
+        "rubyLsp.bundleGemfile": "../Gemfile",
+        "sorbet.configFilePatterns": ["../sorbet/config"]
       }
     },
     {
       "name": "apps",
       "path": "apps",
       "settings": {
-        "rubyLsp.bundleGemfile": "../Gemfile"
+        "rubyLsp.bundleGemfile": "../Gemfile",
+        "sorbet.configFilePatterns": ["../sorbet/config"]
       }
     },
     {
       "name": "libs",
       "path": "libs",
       "settings": {
-        "rubyLsp.bundleGemfile": "../Gemfile"
+        "rubyLsp.bundleGemfile": "../Gemfile",
+        "sorbet.configFilePatterns": ["../sorbet/config"]
       }
     }
   ],
@@ -39,7 +43,6 @@
     "rubyLsp.linters": ["rubocop"],
     "rubyLsp.bundleGemfile": "../Gemfile",
     "sorbet.enabled": true,
-    "sorbet.configFilePatterns": ["../sorbet/config"],
     "editor.formatOnSave": true,
     "[ruby]": {
       "editor.defaultFormatter": "Shopify.ruby-lsp",

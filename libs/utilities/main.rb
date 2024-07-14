@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
-require_relative './print'
-
 # Container for all the utility functions
-module Utilities
+module Workspace
+  module Libs
+    # module declaration for all the utilities
+    module Utilities
+      extend Core::Loadable
+
+      relative_root 'libs/utilities'
+    end
+  end
 end

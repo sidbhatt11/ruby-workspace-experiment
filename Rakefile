@@ -25,7 +25,6 @@ task :run do
 end
 
 task :test do
-  require 'test/unit'
   Workspace::Core::Runner.test(arguments.first, arguments.rest)
 end
 

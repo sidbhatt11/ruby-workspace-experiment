@@ -10,22 +10,33 @@ module Workspace
 
         sig { params(app_name: String, arguments: T::Array[String]).void }
         def run(app_name, arguments = [])
-          raise "Could not find app #{app_name}" unless Loader.load_app(app_name)
-
-          runnable_klass = const_get("#{app_name.capitalize}::Main")
-          raise "#{runnable_klass} must be Runnable" unless runnable_klass < Runnable
-
-          begin
-            runnable_klass.new(arguments).post_init
-          rescue NameError => e
-            missing_thing = e.name.to_s
-            retry if Loader.load_lib(missing_thing) else "Could not find #{missing_thing}. Giving up."
-          end
+          runnable_klass = const_get("Workspace::Apps::#{app_name.capitalize}::Main")
+          runnable_klass.new(arguments).post_init
         end
 
-        sig { params(app_name: String, _arguments: T::Array[String]).void }
-        def test(app_name, _arguments = [])
-          raise "Could not find #{app_name} to test" unless Loader.load_test(app_name)
+        sig { params(name: String, _arguments: T::Array[String]).void }
+        def test(name, _arguments = [])
+          require 'test/unit'
+          dir_name = name.downcase
+
+          tests_not_found = {
+            apps: T.let(false, T::Boolean),
+            libs: T.let(false, T::Boolean)
+          }
+
+          begin
+            tests_not_found.each do |module_type, not_found|
+              require_relative "../#{module_type}/#{dir_name}/test" unless not_found
+            end
+          rescue LoadError => e
+            tests_not_found.each_key do |module_type|
+              tests_not_found[module_type] = true if e.path.to_s.include? module_type.to_s
+            end
+
+            raise e if tests_not_found.values.all? { |v| v == true }
+
+            retry
+          end
         end
       end
     end
