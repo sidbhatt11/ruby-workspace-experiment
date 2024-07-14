@@ -1,0 +1,60 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": ".",
+      "settings": {
+        "rubyLsp.bundleGemfile": "Gemfile"
+      }
+    },
+    {
+      "name": "core",
+      "path": "core",
+      "settings": {
+        "rubyLsp.bundleGemfile": "../Gemfile"
+      }
+    },
+    {
+      "name": "apps",
+      "path": "apps",
+      "settings": {
+        "rubyLsp.bundleGemfile": "../Gemfile"
+      }
+    },
+    {
+      "name": "libs",
+      "path": "libs",
+      "settings": {
+        "rubyLsp.bundleGemfile": "../Gemfile"
+      }
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "core": true,
+      "apps": true,
+      "libs": true
+    },
+    "rubyLsp.formatter": "rubocop",
+    "rubyLsp.linters": ["rubocop"],
+    "rubyLsp.bundleGemfile": "../Gemfile",
+    "sorbet.enabled": true,
+    "sorbet.configFilePatterns": ["../sorbet/config"],
+    "editor.formatOnSave": true,
+    "[ruby]": {
+      "editor.defaultFormatter": "Shopify.ruby-lsp",
+      "editor.formatOnSave": true,
+      "editor.tabSize": 2
+    }
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "ruby_lsp",
+        "name": "Attach debugger",
+        "request": "attach"
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+Style/FrozenStringLiteralComment:
+  SafeAutoCorrect: always
+  AutoCorrect: always
+
+Layout/EmptyLineAfterMagicComment:
+  AutoCorrect: always
