@@ -5,7 +5,6 @@ require 'test/unit'
 
 module Workspace
   module Apps
-    # Contains greeter app logic
     module Greeter
       # Tests for Greeter App
       class GreeterTest < Test::Unit::TestCase

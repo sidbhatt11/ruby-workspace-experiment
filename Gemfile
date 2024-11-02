@@ -2,11 +2,12 @@
 
 source 'https://rubygems.org'
 
-ruby '3.3.4'
+ruby '3.3.5'
 
 # Debug
 group :development, :test do
   gem "pry", "~> 0.14.2"
+  gem "test-unit"
 end
 
 # Sorbet
